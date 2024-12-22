@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  @apply bg-pale-green;
+  @apply font-spaceGrotesk;
+}
+
+.box-shadow {
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+
+html {
+  z-index: -20;
+}
+
+@layer base {
+  @font-face {
+    font-family: "SpaceGrotesk";
+    src: url("/fonts/SpaceGrotesk-VariableFont_wght.ttf")
+      format("truetype");
+  }
+}
+
+@layer components {
+  .hightlighter {
+    position: relative;
+    z-index: 10;
+    @apply after:absolute;
+    @apply after:bg-yellow-400;
+    @apply after:opacity-90;
+    @apply after:top-1/2;
+    @apply after:left-0;
+    @apply after:h-1/2;
+    @apply after:w-11/12;
+    @apply after:-z-10;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
