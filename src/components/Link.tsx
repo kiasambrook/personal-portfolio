@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import {scrollToSection} from '@utils/srollTo';
 
 interface LinkProps {
     href: string;
@@ -10,7 +11,7 @@ interface LinkProps {
 }
 
 const Link = ({ href, text, className = "", scrollTo = false, arrow = false }: LinkProps) => {
-    className = `no-underline hover:hightlighter ${className}`;
+    className = `no-underline hover:highlighter ${className}`;
 
     return (
         <a href={href} target="_blank" rel="noopener noreferrer" className={className} onClick={(e) => onClick(e, scrollTo)}>
@@ -26,16 +27,7 @@ const Link = ({ href, text, className = "", scrollTo = false, arrow = false }: L
  */
 const onClick = (e: React.MouseEvent<HTMLAnchorElement>, scrollTo: boolean) => {
     if (!scrollTo) return;
-
-    e.preventDefault();
-    const target = e.currentTarget.getAttribute('href');
-    if (!target) return;
-
-    const element = document.querySelector(target);
-    if (!element) return;
-
-    element.scrollIntoView({ behavior: "smooth" });
-
+    scrollToSection(e)
 }
 
 export default Link;

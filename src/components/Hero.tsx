@@ -1,6 +1,6 @@
 import Highlight from './HighlightText';
 import Star from './Star';
-import Link from './Link';
+import CTAButton from './CTAButton';
 
 const Hero = () => {
     return (
@@ -9,13 +9,11 @@ const Hero = () => {
                 <p className='text-xl'>Hi, I'm</p>
                 <h1 className='text-6xl font-bold'>Kia Sambrook</h1>
                 <h2 className='text-5xl mt-2'><Highlight>Web Developer</Highlight></h2>
-                <button className=' bg-sky-300 w-1/2 border-4 border-black my-8 rounded-full p-4 group'>
-                <Link
-                href='#portfolio'
-                text='See Portfolio'
-                scrollTo={true}
-                arrow={true}
-                /></button>
+                <CTAButton
+                    href='#projects'
+                    highlighter
+                    arrow
+                >See Portfolio</CTAButton>
             </div>
 
             <div className='flex justify-start w-full -rotate-3'>

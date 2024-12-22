@@ -24,7 +24,7 @@ html {
 }
 
 @layer components {
-  .hightlighter {
+  .highlighter {
     position: relative;
     z-index: 10;
     @apply after:absolute;

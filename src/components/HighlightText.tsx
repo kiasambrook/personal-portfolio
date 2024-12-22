@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 const HightLightedText = ({ children }: { children: ReactNode }) => {
     return (
-        <span className="hightlighter">
+        <span className="highlighter">
             {children}
         </span>
     );
