@@ -10,6 +10,9 @@ body {
   box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
+:root:has(.overlay-open) {
+  overflow: hidden;
+}
 
 html {
   z-index: -20;
@@ -18,8 +21,7 @@ html {
 @layer base {
   @font-face {
     font-family: "SpaceGrotesk";
-    src: url("/fonts/SpaceGrotesk-VariableFont_wght.ttf")
-      format("truetype");
+    src: url("/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
   }
 }
 

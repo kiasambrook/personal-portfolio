@@ -1,4 +1,4 @@
-import Navbar from '@components/Navbar'
+import Navbar from '@components/menu/Navbar'
 import Star from '@components/Star'
 import Home from './pages/Home';
 import {

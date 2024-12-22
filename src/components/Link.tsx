@@ -16,7 +16,7 @@ const Link = ({ href, text, className = "", scrollTo = false, arrow = false }: L
     return (
         <a href={href} target="_blank" rel="noopener noreferrer" className={className} onClick={(e) => onClick(e, scrollTo)}>
             {text}
-            {arrow ? <FontAwesomeIcon icon={faArrowRight}  className='ml-2 hidden group-hover:inline-block' /> : null}
+            {arrow ? <FontAwesomeIcon icon={faArrowRight}  className=' ml-2 hidden group-hover:inline-block' /> : null}
         </a >
     );
 };
