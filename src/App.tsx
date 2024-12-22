@@ -10,7 +10,7 @@ import {
 function App() {
   return (
    <Router>
-    <Star classes="fill-sky-400 rotate-45 absolute top-0 left-0 p-0 m-0" />
+    <Star classes="fill-sky-400 rotate-45 absolute -top-10 -left-10 p-0 m-0" />
      <Navbar
        title="Kia"
        links={[
