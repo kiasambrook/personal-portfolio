@@ -13,6 +13,7 @@ const Hero = () => {
                     href='#projects'
                     highlighter
                     arrow
+                    sparks
                 >See Portfolio</CTAButton>
             </div>
 

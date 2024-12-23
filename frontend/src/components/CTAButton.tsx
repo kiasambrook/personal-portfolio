@@ -9,9 +9,10 @@ interface CTAButtonProps {
     scrollTo?: boolean;
     arrow?: boolean;
     highlighter?: boolean;
+    sparks?: boolean;
 }
 
-const CTAButton = ({ children, href, className = "", scrollTo = false, arrow = false, highlighter = false }: CTAButtonProps) => {
+const CTAButton = ({ children, href, className = "", scrollTo = false, arrow = false, highlighter = false, sparks = false }: CTAButtonProps) => {
     className = `button-lines bg-sky-300 w-1/2 border-4 border-black my-8 rounded-full p-4 group relative ${className}`;
 
     return (
@@ -22,9 +23,13 @@ const CTAButton = ({ children, href, className = "", scrollTo = false, arrow = f
                     {arrow ? <FontAwesomeIcon icon={faArrowRight} className='ml-2 hidden group-hover:inline-block' /> : null}
                 </a>
             </button>
-            <span className="line line-1"></span>
-            <span className="line line-2"></span>
-            <span className="line line-3"></span>
+            {sparks &&
+                <>
+                    <span className="line line-1"></span>
+                    <span className="line line-2"></span>
+                    <span className="line line-3"></span>
+                </>
+            }
         </div>
     );
 };
