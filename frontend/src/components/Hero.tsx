@@ -4,7 +4,7 @@ import CTAButton from './CTAButton';
 
 const Hero = () => {
     return (
-        <section className='h-screen flex flex-col justify-center items-center my-8 text-center md:text-left md:my-0  md:flex-row md:items-center md:justify-between  container mx-auto'>
+        <section className='h-screen flex flex-col justify-center items-center my-8 text-center md:text-left md:my-0  md:flex-row md:items-center md:justify-between'>
             <div className='w-full'>
                 <p className='text-xl'>Hi, I'm</p>
                 <h1 className='text-6xl font-bold'>Kia Sambrook</h1>
