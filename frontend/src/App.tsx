@@ -1,5 +1,5 @@
 import Navbar from '@components/menu/Navbar'
-import Star from '@components/Star'
+import Star from '@components/decorations/Star'
 import Home from './pages/Home';
 import {
   BrowserRouter as Router,
