@@ -14,7 +14,7 @@ function App() {
       <Navbar
         title="Kia"
         links={[
-          { href: "#about", text: "About" },
+          { href: "#skills", text: "Skills" },
           { href: "#portfolio", text: "Portfolio" },
           { href: "#contact", text: "Contact" },
         ]} />
