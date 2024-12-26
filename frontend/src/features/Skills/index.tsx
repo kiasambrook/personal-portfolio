@@ -3,6 +3,7 @@ import Swiper from "@components/Swiper";
 import { Skill } from "./types";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHtml5, faCss3, faJs, faReact, faGit, faPython, faWordpress, faLaravel } from '@fortawesome/free-brands-svg-icons';
+import { RoughNotation } from "react-rough-notation";
 import Tools from "@components/icons/Tools";
 
 const Skills: React.FC = () => {
@@ -32,8 +33,12 @@ const Skills: React.FC = () => {
         <section id="skills">
             <FullWidthContent
                 classes="bg-black py-20 text-white text-center">
-                <Tools classes="absolute fill-white right-20 w-36 max-h-36 h-full opacity-20"  />
-                <h3 className="text-3xl font-semi-bold py-4">Skills</h3>
+                <Tools classes="absolute fill-white right-20 w-36 max-h-36 h-full opacity-20" />
+                <div className="text-3xl font-semi-bold pb-8">
+                    <RoughNotation type="underline" show={true}>
+                        Skills
+                    </RoughNotation>
+                </div>
                 <Swiper
                     slidesPerView={5}
                     loop={true}
