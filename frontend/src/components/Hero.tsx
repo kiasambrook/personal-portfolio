@@ -20,8 +20,8 @@ const Hero = () => {
             <div className='flex justify-center md:justify-start w-full -rotate-3 relative'>
                 <img src='/img/polaroid.png' alt='Polaroid' className='' />
                 <Star
-                        classes='fill-pink-500 absolute rotate-12 md:bottom-0'
-                    />
+                    classes='fill-red-500 absolute rotate-12 md:bottom-0'
+                />
             </div>
         </section>
     );
