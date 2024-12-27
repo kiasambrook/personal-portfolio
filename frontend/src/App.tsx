@@ -12,7 +12,6 @@ function App() {
     <Router>
       <Star classes="fill-sky-400 rotate-45 absolute -top-10 -left-10 p-0 m-0" />
       <Navbar
-        title="Kia"
         links={[
           { href: "#skills", text: "Skills" },
           { href: "#portfolio", text: "Portfolio" },

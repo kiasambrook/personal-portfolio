@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHtml5, faCss3, faJs, faReact, faGit, faPython, faWordpress, faLaravel } from '@fortawesome/free-brands-svg-icons';
 import { RoughNotation } from "react-rough-notation";
 import Tools from "@components/icons/Tools";
+import SectionTitle from "@components/SectionTitle";
 
 const Skills: React.FC = () => {
     const skills: Skill[] = [
@@ -34,11 +35,7 @@ const Skills: React.FC = () => {
             <FullWidthContent
                 classes="bg-black py-20 text-white text-center">
                 <Tools classes="absolute fill-white right-20 w-36 max-h-36 h-full opacity-20" />
-                <div className="text-3xl font-semi-bold pb-8">
-                    <RoughNotation type="underline" show={true}>
-                        Skills
-                    </RoughNotation>
-                </div>
+                <SectionTitle>Skills</SectionTitle>
                 <Swiper
                     slidesPerView={5}
                     loop={true}
