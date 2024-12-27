@@ -11,7 +11,6 @@ const Hero = () => {
                 <h2 className='text-5xl mt-2'><Highlight>Web Developer</Highlight></h2>
                 <CTAButton
                     href='#projects'
-                    highlighter
                     arrow
                     sparks
                 >See Portfolio</CTAButton>
