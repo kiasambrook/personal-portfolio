@@ -3,7 +3,6 @@ import Swiper from "@components/Swiper";
 import { Skill } from "./types";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHtml5, faCss3, faJs, faReact, faGit, faPython, faWordpress, faLaravel } from '@fortawesome/free-brands-svg-icons';
-import { RoughNotation } from "react-rough-notation";
 import Tools from "@components/icons/Tools";
 import SectionTitle from "@components/SectionTitle";
 
