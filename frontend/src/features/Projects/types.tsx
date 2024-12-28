@@ -3,6 +3,11 @@ interface Project {
     name: string;
     description: string;
     image: string;
+    skills: string[];
 }
 
-export type { Project };
+interface Projects {
+    projects: Project[];
+}
+
+export type { Project, Projects };

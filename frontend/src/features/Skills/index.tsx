@@ -33,7 +33,8 @@ const Skills: React.FC = () => {
     return (
         <section id="skills">
             <FullWidthContent
-                classes="bg-black py-20 text-white text-center">
+                classes="bg-black py-20 text-white">
+                <div className="container mx-auto">
                 <Tools classes="absolute fill-white right-20 w-36 max-h-36 h-full opacity-20" />
                 <SectionTitle>Skills</SectionTitle>
                 <Swiper
@@ -46,6 +47,7 @@ const Skills: React.FC = () => {
                     navigation={false}>
                     {renderSkills()}
                 </Swiper>
+                </div>
             </FullWidthContent>
         </section>
     );
