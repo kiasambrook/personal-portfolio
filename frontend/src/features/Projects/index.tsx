@@ -8,6 +8,7 @@ const Projects = () => {
             name: "Project 1",
             description: "Description 1",
             image: "https://via.placeholder.com/150",
+            link: "#",
             skills: ["HTML", "CSS", "JavaScript"]
         },
         {
@@ -15,6 +16,7 @@ const Projects = () => {
             name: "Project 2",
             description: "Description 2",
             image: "https://via.placeholder.com/150",
+            link: "#",
             skills: ["React", "TypeScript"]
         },
         {
@@ -22,6 +24,7 @@ const Projects = () => {
             name: "Project 3",
             description: "Description 3",
             image: "https://via.placeholder.com/150",
+            link: "#",
             skills: ["React", "TypeScript"]
         },
         {
@@ -29,6 +32,7 @@ const Projects = () => {
             name: "Project 4",
             description: "Description 4",
             image: "https://via.placeholder.com/150",
+            link: "#",
             skills: ["React", "TypeScript"]
         }
     ];
