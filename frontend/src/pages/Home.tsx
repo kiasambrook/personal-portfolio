@@ -1,6 +1,7 @@
 import Hero from "@components/Hero";
 import Skills from "@features/Skills";
 import Projects from "@features/Projects";
+import Timeline from "@features/Timeline";
 
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
       <Hero />
       <Skills />
       <Projects />
+      <Timeline />
     </>
   );
 };
