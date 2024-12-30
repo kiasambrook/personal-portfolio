@@ -6,6 +6,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Footer from '@features/Footer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
         </Routes>
       </div>
+      <Footer />
     </Router>
   )
 }
