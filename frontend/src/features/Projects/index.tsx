@@ -7,7 +7,7 @@ const Projects = () => {
             id: 1,
             name: "Project 1",
             description: "Description 1",
-            image: "https://via.placeholder.com/150",
+            image: "https://fakeimg.pl/150x150",
             link: "#",
             skills: ["HTML", "CSS", "JavaScript"]
         },
@@ -15,7 +15,7 @@ const Projects = () => {
             id: 2,
             name: "Project 2",
             description: "Description 2",
-            image: "https://via.placeholder.com/150",
+            image: "https://fakeimg.pl/150x150",
             link: "#",
             skills: ["React", "TypeScript"]
         },
@@ -23,7 +23,7 @@ const Projects = () => {
             id: 3,
             name: "Project 3",
             description: "Description 3",
-            image: "https://via.placeholder.com/150",
+            image: "https://fakeimg.pl/150x150",
             link: "#",
             skills: ["React", "TypeScript"]
         },
@@ -31,7 +31,7 @@ const Projects = () => {
             id: 4,
             name: "Project 4",
             description: "Description 4",
-            image: "https://via.placeholder.com/150",
+            image: "https://fakeimg.pl/150x150",
             link: "#",
             skills: ["React", "TypeScript"]
         }

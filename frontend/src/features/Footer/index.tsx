@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <div className="py-10 border-t-4 border-black mt-10 flex justify-around">
             <Logo />
-            <h4 className="text-lg">Kia Sambrook {year}&copy;</h4>
+            <h4 className="text-lg">Kia Sambrook {year} &copy;</h4>
             <div className="flex">
                 <a href="https://www.linkedin.com/in/kiasambrook" target="_blank" className="mx-2 hover:text-[#0077B5]"><FontAwesomeIcon size="xl"  icon={faLinkedin} /></a>
                 <a href="https://www.github.com/kiasambrook" target="_blank" className="mx-2 hover:text-[#333]"><FontAwesomeIcon size="xl" icon={faGithub} /></a>
