@@ -19,4 +19,9 @@ class Project extends Model
      * @var array
      */
     protected $fillable = ['name', 'description', 'link', 'github', 'image'];
+
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class);
+    }
 }

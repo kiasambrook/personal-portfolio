@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProjectResource\Pages;
-use App\Filament\Resources\ProjectResource\RelationManagers;
-use App\Models\Project;
+use App\Filament\Resources\SkillResource\Pages;
+use App\Filament\Resources\SkillResource\RelationManagers;
+use App\Models\Skill;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ProjectResource extends Resource
+class SkillResource extends Resource
 {
-    protected static ?string $model = Project::class;
+    protected static ?string $model = Skill::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -26,22 +26,8 @@ class ProjectResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('link')
-                    ->maxLength(255)
-                    ->url(),
-                Forms\Components\TextInput::make('github')
-                    ->maxLength(255)
-                    ->url(),
                 Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->imageEditor(),
-                Forms\Components\Select::make('skills')
-                    ->multiple()
-                    ->relationship('skills', 'name')
-                    ->preload()
-                    ->columnSpanFull(),
+                    ->image(),
             ]);
     }
 
@@ -50,13 +36,6 @@ class ProjectResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('link')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('github')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('skills.name')
-                    ->badge()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -68,11 +47,7 @@ class ProjectResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                // Filter by skills
-                Tables\Filters\SelectFilter::make('skills')
-                    ->relationship('skills', 'name')
-                    ->multiple()
-                    ->preload(),
+                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -94,9 +69,9 @@ class ProjectResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListProjects::route('/'),
-            'create' => Pages\CreateProject::route('/create'),
-            'edit' => Pages\EditProject::route('/{record}/edit'),
+            'index' => Pages\ListSkills::route('/'),
+            'create' => Pages\CreateSkill::route('/create'),
+            'edit' => Pages\EditSkill::route('/{record}/edit'),
         ];
     }
 }
