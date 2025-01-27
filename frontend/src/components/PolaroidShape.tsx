@@ -1,15 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { Skill } from "@customTypes/skill";
 
 interface PolaroidShapeProps {
     image: string;
     title: string;
-    skills: string[];
+    tags: Skill[];
     link: string
 }
 
-const PolaroidShape: React.FC<PolaroidShapeProps> = ({ image, title, skills, link }) => {
-    const skillLength = skills.length;
+const PolaroidShape: React.FC<PolaroidShapeProps> = ({ image, title, tags, link }) => {
+    const tagLength = tags.length;
 
     return (
         <div className="w-1/3 h-full py-6 px-8 bg-white border-4 border-black box-shadow ">
@@ -18,8 +19,8 @@ const PolaroidShape: React.FC<PolaroidShapeProps> = ({ image, title, skills, lin
                 <div>
                     <h3 className="text-xl font-bold">{title}</h3>
                     <ul className="space-x-2 w-full flex flex-wrap">
-                        {skills.map((skill, index) => (
-                            <li key={index}>{skill}{++index >= skillLength ? "" : " - "}</li>
+                        {tags.map((tag, index) => (
+                            <li key={index}>{tag.name}{++index >= tagLength ? "" : " - "}</li>
                         ))}
                     </ul>
                 </div>

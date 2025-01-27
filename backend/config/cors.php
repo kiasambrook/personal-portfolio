@@ -12,7 +12,7 @@ return [
 |
 */
 
-'paths' => ['api/*', '/projects'],  // Include the specific paths you want to allow, such as '/projects'
+'paths' => ['*'],  // Include the specific paths you want to allow, such as '/projects'
 
 'allowed_methods' => ['*'],  // This allows all HTTP methods like GET, POST, PUT, DELETE, etc.
 
