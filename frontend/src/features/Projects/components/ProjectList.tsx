@@ -1,27 +1,36 @@
 import PolaroidShape from "@components/PolaroidShape";
-import { Projects } from "../types";
+import { useEffect, useState } from 'react';
+import ProjectApi from "../api/service";
+import { Project } from "@customTypes/project";
 
-interface ProjectListProps {
-    projects: Projects | null | undefined;
-}
+const ProjectList = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
 
-const ProjectList = ({ projects }: ProjectListProps) => {
-    if (!projects) {
-        return null
-    }
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const projectService: ProjectApi = new ProjectApi();
+        const fetcheProjects = await projectService.fetchProjects();
+        setProjects(fetcheProjects);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      }
+    };
+    fetchProjects();
+  }, []);
 
-    return (
-        <div className="flex justify-center flex-wrap gap-12 w-full">
-            {projects.projects.map((project) => (
-                <PolaroidShape
-                    key={project.id}
-                    image={project.image}
-                    title={project.name}
-                    skills={project.skills}
-                    link={project.link} />
-            ))}
-        </div>
-    );
+  return (
+    <div className="flex justify-center flex-wrap gap-12 w-full">
+      {projects.map((project) => (
+        <PolaroidShape
+          key={project.id}
+          image={project.image}
+          title={project.name}
+          tags={project.skills}
+          link={project.link} />
+      ))}
+    </div>
+  );
 }
 
 export default ProjectList;
