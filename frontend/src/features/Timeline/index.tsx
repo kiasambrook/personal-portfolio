@@ -1,5 +1,5 @@
 import SectionTitle from "@components/SectionTitle";
-import CardStack from "./CardStack";
+import CardStack from "./components/CardStack";
 
 const Timeline = () => {
 
