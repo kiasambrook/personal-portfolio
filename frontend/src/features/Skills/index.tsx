@@ -1,29 +1,36 @@
 import { FullWidthContent } from "@components/FullWidthContent";
 import Swiper from "@components/Swiper";
-import { Skill } from "./types";
+import { Skill } from "@customTypes/skill";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHtml5, faCss3, faJs, faReact, faGit, faPython, faWordpress, faLaravel } from '@fortawesome/free-brands-svg-icons';
+import { faReact } from '@fortawesome/free-brands-svg-icons';
 import Tools from "@components/icons/Tools";
 import SectionTitle from "@components/SectionTitle";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { useEffect, useState } from "react";
+import SkillApi from "./api/service";
 
 const Skills: React.FC = () => {
-    const skills: Skill[] = [
-        { title: "HTML5", icon: faHtml5 },
-        { title: "CSS3", icon: faCss3 },
-        { title: "JavaScript", icon: faJs },
-        { title: "React", icon: faReact },
-        { title: "Python", icon: faPython },
-        { title: "Git", icon: faGit },
-        { title: "Wordpress", icon: faWordpress },
-        { title: "Laravel", icon: faLaravel }
-    ];
+    const [skills, setSkills] = useState<Skill[]>([])
+
+    useEffect(() => {
+        const fetchSkills = async () => {
+            try{
+                const skillService: SkillApi = new SkillApi()
+                setSkills(await skillService.fetchSkills())
+            } catch(error) {
+                console.error('Error fetching skills:', error);
+            }
+        }
+
+        fetchSkills()
+    })
 
     const renderSkills = () => {
         return skills.map((skill, index) => {
             return (
                 <div key={index} className="flex flex-col items-center">
-                    <FontAwesomeIcon icon={skill.icon} size="3x" className="text-white" />
-                    <p className="sr-only">{skill.title}</p>
+                    <FontAwesomeIcon icon={faReact as IconProp} size="3x" className="text-white" />
+                    <p className="text-xl text-white">{skill.name}</p>
                 </div>
             );
         });
