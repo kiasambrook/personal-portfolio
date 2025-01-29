@@ -9,7 +9,6 @@
       "@components/*": ["src/components/*"],
       "@utils/*": ["src/utils/*"],
       "@features/*": ["src/features/*"],
-      "@customTypes/*": ["src/types/*"],
     },
 
     /* Bundler mode */
