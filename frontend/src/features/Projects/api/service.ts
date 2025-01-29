@@ -1,4 +1,5 @@
 import { Project } from "@customTypes/project";
+
 class ProjectApi {
     async fetchProjects(): Promise<Project[]> {
         try {
@@ -15,4 +16,5 @@ class ProjectApi {
         }
     }
 }
+
 export default ProjectApi;

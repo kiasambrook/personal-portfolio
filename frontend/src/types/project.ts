@@ -1,4 +1,5 @@
 import { Skill } from './skill';
+
 export type Project = {
     id: number;
     name: string;
