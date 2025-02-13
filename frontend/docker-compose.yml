@@ -2,11 +2,14 @@ version: '3.8'
 
 services:
   frontend:
-    build: .
+    build:
+      context: .
+      target: development  # Ensure this is set to 'development'
     ports:
-      - "4000:80"
+      - "3000:5173"  # Expose Vite's default port (5173) to your local port (3000 or any other)
     volumes:
       - .:/app
       - /app/node_modules
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
+    command: ["npm", "run", "dev", "--", "--host"]  # Explicitly pass --host to Vite

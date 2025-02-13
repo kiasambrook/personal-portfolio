@@ -1,29 +1,20 @@
-# Use an official Node.js runtime as a parent image
-FROM node:14
+# Base stage to install dependencies
+FROM node:14 AS base
 
-# Set the working directory in the container
 WORKDIR /app
-
-# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
-
-# Copy the rest of the application code to the working directory
 COPY . .
 
-# Build the React app for production
+# Development stage
+FROM base AS development
+EXPOSE 3000
+CMD ["npm", "run", "dev"]
+
+# Production stage
+FROM base AS production
 RUN npm run build
-
-# Use an official Nginx image to serve the build
 FROM nginx:alpine
-
-# Copy the build output to the Nginx HTML directory
-COPY --from=0 /app/dist /usr/share/nginx/html
-
-# Expose port 80
+COPY --from=production /app/dist /usr/share/nginx/html
 EXPOSE 80
-
-# Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]
