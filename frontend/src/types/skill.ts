@@ -1,7 +1,9 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+
 export type Skill = {
-    id: number;
+    id?: number;
     name: string;
-    icon?: string;
-    created_at: string;
-    updated_at: string;
+    icon: IconProp;
+    created_at?: string;
+    updated_at?: string;
 }
