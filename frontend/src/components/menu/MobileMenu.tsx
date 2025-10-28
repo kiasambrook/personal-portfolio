@@ -26,7 +26,7 @@ const MobileMenu = ({ links }: MobileMenuProps) => {
                 <ul className="flex flex-col w-full place-items-center text-left justify-center">
                     {links.map((link, index) => (
                         <li key={index} className="">
-                            <Link href={link.href} text={link.text} scrollTo={true} />
+                            <Link href={link.href} text={link.text} scrollTo={true} handleClick={handleClick} />
                         </li>
                     ))}
                 </ul>

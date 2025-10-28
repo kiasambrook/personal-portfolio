@@ -79,15 +79,25 @@ const Skills: React.FC = () => {
                 classes="bg-black py-20 text-white">
                 <div className="container mx-auto">
                 <Tools classes="absolute fill-white right-20 w-36 max-h-36 h-full opacity-20" />
-                <SectionTitle>Skills</SectionTitle>
+                <SectionTitle classes="mb-4 px-3 lg:px-0">Skills</SectionTitle>
                 <Swiper
-                    slidesPerView={5}
+                    slidesPerView={2}
                     loop={true}
                     spaceBetween={30}
                     centeredSlides={true}
                     grabCursor={true}
                     autoplay={true}
-                    navigation={false}>
+                    navigation={false}
+                    breakpoints={{
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 30
+                        },
+                        1070: {
+                            slidesPerView: 5,
+                            spaceBetween: 30
+                        }
+                    }}>
                     {renderSkills()}
                 </Swiper>
                 </div>

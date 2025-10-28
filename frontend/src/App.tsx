@@ -7,8 +7,19 @@ import {
   Route,
 } from "react-router-dom";
 import Footer from '@features/Footer';
+import AOS from "aos";
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   return (
     <Router>
       <Star classes="fill-sky-400 rotate-45 absolute -top-10 -left-10 p-0 m-0" />
@@ -16,7 +27,7 @@ function App() {
         links={[
           { href: "#skills", text: "Skills" },
           { href: "#portfolio", text: "Portfolio" },
-          { href: "#contact", text: "Contact" },
+          { href: "#timeline", text: "Experience" },
         ]} />
       <div className="container mx-auto">
         <Routes>
