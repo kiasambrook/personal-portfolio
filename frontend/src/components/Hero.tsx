@@ -17,10 +17,10 @@ const Hero = () => {
                 >See Portfolio</CTAButton>
             </div>
 
-            <div className='flex justify-center md:justify-start w-full -rotate-3 relative'>
+            <div className='flex justify-center md:justify-start mt-4 md:mt-0 w-full -rotate-3 relative'>
                 <img src='/img/polaroid.png' alt='Polaroid' className='px-4 md:px-0' />
                 <Star
-                    classes='fill-red-500 absolute rotate-12 md:bottom-0'
+                    classes='fill-red-500 absolute rotate-12 md:bottom-0 hidden md:block'
                 />
             </div>
         </section>

@@ -17,7 +17,7 @@ const MobileMenu = ({ links }: MobileMenuProps) => {
         setIsOpen(!isOpen);
     };
 
-    const menuClasses = `bg-pale-green text-2xl font-bold p-4 absolute h-screen w-screen top-0 left-0 z-30 overscroll-contain flex justify-between  ${isOpen ? 'block overlay-open' : 'hidden'}`;
+    const menuClasses = `bg-pale-green text-2xl font-bold p-4 absolute h-full w-screen top-0 left-0 z-30 overscroll-contain flex justify-between  ${isOpen ? 'block overlay-open' : 'hidden'}`;
 
     return (
         <>
