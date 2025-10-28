@@ -11,19 +11,19 @@ const Timeline = () => {
             title: "Software Engineer",
             subtitle: "Mintel Ltd. Aug 2024 - Present",
             icon: faBriefcase,
-            description: "Cillum tempor nostrud laboris tempor est. Ullamco voluptate ullamco aliquip nulla consequat consequat. Aliqua ad commodo qui aliquip irure excepteur nisi. Nostrud Lorem dolore tempor ullamco enim."
+            description: "In-house developer working on features for Mintel’s corporate website and E-Commerce store."
         },
         {
             title: "Web Developer",
             subtitle: "gloversure. Aug 2022 - Aug 2024",
             icon: faBriefcase,
-            description: "Cillum tempor nostrud laboris tempor est. Ullamco voluptate ullamco aliquip nulla consequat consequat. Aliqua ad commodo qui aliquip irure excepteur nisi. Nostrud Lorem dolore tempor ullamco enim."
+            description: "Focused on building websites primarily for clients in the travel sector, allowing customers to search and book UK and international holiday rentals. Also contributed to E-Commerce sites using Adobe Magento 2."
         },
         {
             title: "Business Information Technology",
             subtitle: "Aberystwyth University",
             icon: faGraduationCap,
-            description: "Cillum tempor nostrud laboris tempor est. Ullamco voluptate ullamco aliquip nulla consequat consequat. Aliqua ad commodo qui aliquip irure excepteur nisi. Nostrud Lorem dolore tempor ullamco enim."
+            description: "Course included software engineering, full-stack web development, business marketing, and agile methodologies."
         }
     ])
 
