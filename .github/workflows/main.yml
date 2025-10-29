@@ -33,7 +33,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 21098
           script: |
-            cd ~/laravelapp
+            cd ~/laravelapp/backend
             composer install --no-dev --optimize-autoloader
             php artisan migrate --force
             php artisan config:cache
