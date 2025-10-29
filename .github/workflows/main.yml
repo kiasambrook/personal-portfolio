@@ -11,15 +11,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Debug repo
+        run: ls -la $GITHUB_WORKSPACE
+
       - name: Deploy to Namecheap via SSH
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.HOST }}              
           username: ${{ secrets.USERNAME }}      
-          port: ${{ secrets.PORT }}                            
+          port: 21098                            
           key: ${{ secrets.SSH_KEY }}   
           script: |
-            cd ~/laravelapp || mkdir ~/laravelapp
+            mkdir -p ~/laravelapp
             rsync -avz --delete $GITHUB_WORKSPACE/backend/ ~/laravelapp/
             cd ~/laravelapp
             composer install --no-dev --optimize-autoloader
