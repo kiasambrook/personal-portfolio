@@ -11,6 +11,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install Composer dependencies
+        run: |
+          cd backend
+          composer install --no-dev --optimize-autoloader
+
       - name: Install Node & build Vite assets
         run: |
           cd backend
