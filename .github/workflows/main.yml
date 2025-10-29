@@ -11,20 +11,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Debug repo
-        run: ls -la $GITHUB_WORKSPACE
+      # Optional: debug local files
+      - name: List backend folder locally
+        run: ls -la $GITHUB_WORKSPACE/backend
 
-      - name: Deploy to Namecheap via SSH
+      - name: Deploy Laravel backend via SCP
+        uses: appleboy/scp-action@v0.1.6
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 21098
+          source: "backend/*"
+          target: "/home/${{ secrets.USERNAME }}/laravelapp/"
+
+      - name: Run remote commands
         uses: appleboy/ssh-action@v1.2.0
         with:
-          host: ${{ secrets.HOST }}              
-          username: ${{ secrets.USERNAME }}      
-          port: 21098                            
-          key: ${{ secrets.SSH_KEY }}   
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 21098
           script: |
-            mkdir -p ~/laravelapp
-            ls -la $GITHUB_WORKSPACE
-            rsync -avz --delete "$GITHUB_WORKSPACE/backend/" ~/laravelapp/
             cd ~/laravelapp
             composer install --no-dev --optimize-autoloader
             php artisan migrate --force
