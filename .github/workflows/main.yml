@@ -23,7 +23,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}   
           script: |
             mkdir -p ~/laravelapp
-            rsync -avz --delete $GITHUB_WORKSPACE/backend/ ~/laravelapp/
+            rsync -avz --delete "$GITHUB_WORKSPACE/backend/" ~/laravelapp/
             cd ~/laravelapp
             composer install --no-dev --optimize-autoloader
             php artisan migrate --force
