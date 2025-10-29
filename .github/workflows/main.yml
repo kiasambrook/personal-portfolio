@@ -14,15 +14,13 @@ jobs:
       - name: Deploy to Namecheap via SSH
         uses: appleboy/ssh-action@v1.2.0
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.SSH_KEY }}
+          host: ${{ secrets.HOST }}              
+          username: ${{ secrets.USERNAME }}      
+          port: ${{ secrets.PORT }}                            
+          key: ${{ secrets.SSH_PRIVATE_KEY }}   
           script: |
             cd ~/laravelapp || mkdir ~/laravelapp
-            rm -rf ~/laravelapp/*
-            cd ~/laravelapp
-            rsync -avz --delete $GITHUB_WORKSPACE/backend/ ./
+            rsync -avz --delete $GITHUB_WORKSPACE/backend/ ~/laravelapp/
             cd ~/laravelapp
             composer install --no-dev --optimize-autoloader
             php artisan migrate --force
