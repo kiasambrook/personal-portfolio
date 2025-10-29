@@ -1,3 +1,5 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+
 export type ExperienceType = {
     id: number;
     name: string;
@@ -14,6 +16,7 @@ export type Experience = {
     is_current: boolean;
     grade: string | null;
     experience_type: ExperienceType;
+    icon?: IconProp;
     created_at: string;
     updated_at: string;
 };

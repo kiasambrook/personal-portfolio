@@ -1,40 +1,38 @@
 import SectionTitle from "@components/SectionTitle";
-import CardStack from "./CardStack";
 import TimelineItem from "./components/TimelineItem";
-import { faBriefcase, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-import { TimelineItemInterface } from "./interface/TimelineItem";
+import { useEffect, useState } from "react";
+import ExperienceApi from "./api/service";
+import { Experience } from "@customTypes/experience";
+import dayjs from 'dayjs';
 
 const Timeline = () => {
-    const [timeLineItems, setTimelineItems] = useState<TimelineItemInterface[]>([
-        {
-            title: "Software Engineer",
-            subtitle: "Mintel Ltd. Aug 2024 - Present",
-            icon: faBriefcase,
-            description: "In-house developer working on features for Mintel’s corporate website and E-Commerce store."
-        },
-        {
-            title: "Web Developer",
-            subtitle: "gloversure. Aug 2022 - Aug 2024",
-            icon: faBriefcase,
-            description: "Focused on building websites primarily for clients in the travel sector, allowing customers to search and book UK and international holiday rentals. Also contributed to E-Commerce sites using Adobe Magento 2."
-        },
-        {
-            title: "Business Information Technology",
-            subtitle: "Aberystwyth University",
-            icon: faGraduationCap,
-            description: "Course included software engineering, full-stack web development, business marketing, and agile methodologies."
-        }
-    ])
+    const [timeLineItems, setTimelineItems] = useState<Experience[]>([])
+
+    useEffect(() => {
+            const fetchSkills = async () => {
+                try{
+                    const experienceApi: ExperienceApi = new ExperienceApi()
+                    setTimelineItems(await experienceApi.fetchExperiences())
+                } catch(error) {
+                    console.error('Error fetching skills:', error);
+                }
+            }
+
+            fetchSkills()
+        }, [])
 
     const renderTimelineItems = () => {
         return timeLineItems.map((item, index) => {
+            const startDate = dayjs(item.start_date).format("MMM YYYY")
+            const endDate = item.is_current == true ? "Present" : dayjs(item.end_date).format("MMM YYYY")
+            const date = startDate + " - " + endDate
+
             return (
-                <div className="relative" key={index}>
+            <div className="relative" key={index}>
                 <TimelineItem
                     key={index}
                     title={item.title}
-                    subtitle={item.subtitle}
+                    subtitle={item.subtitle + " | " + date}
                     icon={item.icon}
                     description={item.description}
                 />
