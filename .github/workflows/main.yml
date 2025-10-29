@@ -1,0 +1,30 @@
+name: Deploy Laravel Backend to Namecheap
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Namecheap via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd ~/laravelapp || mkdir ~/laravelapp
+            rm -rf ~/laravelapp/*
+            cd ~/laravelapp
+            rsync -avz --delete $GITHUB_WORKSPACE/backend/ ./
+            cd ~/laravelapp
+            composer install --no-dev --optimize-autoloader
+            php artisan migrate --force
+            php artisan config:cache
+            php artisan route:cache
