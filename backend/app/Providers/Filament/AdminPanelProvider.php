@@ -26,6 +26,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('/')
+            ->domain('admin.kiasambrook.co.uk')
             ->login()
             ->passwordReset()
             ->emailVerification()
