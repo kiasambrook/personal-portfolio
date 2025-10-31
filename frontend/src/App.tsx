@@ -13,7 +13,7 @@ import { useEffect } from 'react';
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 800,
+      duration: 500,
       once: true,
       offset: 100,
       easing: "ease-out-cubic",

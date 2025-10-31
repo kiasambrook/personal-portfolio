@@ -9,17 +9,17 @@ const Timeline = () => {
     const [timeLineItems, setTimelineItems] = useState<Experience[]>([])
 
     useEffect(() => {
-            const fetchSkills = async () => {
-                try{
-                    const experienceApi: ExperienceApi = new ExperienceApi()
-                    setTimelineItems(await experienceApi.fetchExperiences())
-                } catch(error) {
-                    console.error('Error fetching skills:', error);
-                }
+        const fetchSkills = async () => {
+            try {
+                const experienceApi: ExperienceApi = new ExperienceApi()
+                setTimelineItems(await experienceApi.fetchExperiences())
+            } catch (error) {
+                console.error('Error fetching skills:', error);
             }
+        }
 
-            fetchSkills()
-        }, [])
+        fetchSkills()
+    }, [])
 
     const renderTimelineItems = () => {
         return timeLineItems.map((item, index) => {
@@ -28,25 +28,25 @@ const Timeline = () => {
             const date = startDate + " - " + endDate
 
             return (
-            <div className="relative" key={index}>
-                <TimelineItem
-                    key={index}
-                    title={item.title}
-                    subtitle={item.subtitle + " | " + date}
-                    icon={item.icon}
-                    description={item.description}
-                />
+                <div className="relative" key={index}>
+                    <TimelineItem
+                        key={index}
+                        title={item.title}
+                        subtitle={item.subtitle + " | " + date}
+                        icon={item.icon}
+                        description={item.description}
+                    />
 
-                {DrawLine(index)}
+                    {DrawLine(index)}
                 </div>
             )
         })
     }
 
     const DrawLine = (itemPos: number) => {
-        if(timeLineItems.length - 1 == itemPos) return(<></>);
+        if (timeLineItems.length - 1 == itemPos) return (<></>);
 
-        return(
+        return (
             <span className="-z-10 absolute left-2 bottom-0 w-1 bg-gray-400 h-14" data-aos="fade-right" data-aos-offset="300"></span>
         )
     }

@@ -3,7 +3,6 @@ import Card from "./Card";
 import { TimelineItemInterface } from "../interface/TimelineItem";
 
 const TimelineItem = ({ ...props }: TimelineItemInterface) => {
-
     return (
         <div className="flex relative mb-14" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <div className="absolute -top-5 -left-5" data-aos="zoom-in" data-aos-offset="300" data-aos-delay="500">
