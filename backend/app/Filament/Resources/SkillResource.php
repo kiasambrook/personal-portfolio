@@ -3,15 +3,13 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SkillResource\Pages;
-use App\Filament\Resources\SkillResource\RelationManagers;
 use App\Models\Skill;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Guava\FilamentIconPicker\Forms\IconPicker;
 
 class SkillResource extends Resource
 {
@@ -26,8 +24,10 @@ class SkillResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\FileUpload::make('image')
-                    ->image(),
+               IconPicker::make('icon')
+                    ->columns(3)
+                    ->sets(['fontawesome-solid', 'fontawesome-brands'])
+                    ->required()
             ]);
     }
 
