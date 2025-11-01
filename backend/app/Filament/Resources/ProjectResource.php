@@ -36,6 +36,9 @@ class ProjectResource extends Resource
                     ->url(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->imageResizeTargetWidth(1000)
+                    ->imageResizeTargetHeight(700)
+                    ->disk('public')
                     ->imageEditor(),
                 Forms\Components\Select::make('skills')
                     ->multiple()
