@@ -2,9 +2,11 @@ import PolaroidShape from "@components/PolaroidShape";
 import { useEffect, useState } from 'react';
 import ProjectApi from "../api/service";
 import { Project } from "@customTypes/project";
+import Loading from "@components/Loading";
 
 const ProjectList = () => {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -14,6 +16,8 @@ const ProjectList = () => {
         setProjects(fetcheProjects);
       } catch (error) {
         console.error('Error fetching projects:', error);
+      } finally {
+        setLoading(false)
       }
     };
     fetchProjects();
@@ -21,6 +25,9 @@ const ProjectList = () => {
 
   return (
     <div className="flex justify-center flex-wrap gap-12 w-full">
+      { loading &&
+        <Loading />
+      }
       {projects.map((project) => (
         <PolaroidShape
           key={project.id}

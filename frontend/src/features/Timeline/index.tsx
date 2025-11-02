@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import ExperienceApi from "./api/service";
 import { Experience } from "@customTypes/experience";
 import dayjs from 'dayjs';
+import Loading from "@components/Loading";
 
 const Timeline = () => {
     const [timeLineItems, setTimelineItems] = useState<Experience[]>([])
+    const [loading, setLoading] = useState<boolean>(true)
 
     useEffect(() => {
         const fetchSkills = async () => {
@@ -15,6 +17,8 @@ const Timeline = () => {
                 setTimelineItems(await experienceApi.fetchExperiences())
             } catch (error) {
                 console.error('Error fetching skills:', error);
+            } finally {
+                setLoading(false)
             }
         }
 
@@ -59,6 +63,9 @@ const Timeline = () => {
             </div>
 
             <div className="flex flex-col px-7 lg:px-0">
+                { loading &&
+                    <Loading />
+                }
                 {renderTimelineItems()}
             </div>
         </section>
