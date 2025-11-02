@@ -8,10 +8,12 @@ interface PolaroidShapeProps {
     title: string;
     tags: Skill[];
     link: string
+    linkTargetNewTab?: boolean
 }
 
-const PolaroidShape: React.FC<PolaroidShapeProps> = ({ image, title, tags, link }) => {
+const PolaroidShape: React.FC<PolaroidShapeProps> = ({ image, title, tags, link, linkTargetNewTab = false }) => {
     const tagLength = tags.length;
+    const linkTarget = linkTargetNewTab ? "_blank" : ""
 
     return (
         <div className="md:w-1/3 h-fit py-6 px-6 lg:px-8 bg-white border-4 border-black box-shadow ">
@@ -30,7 +32,7 @@ const PolaroidShape: React.FC<PolaroidShapeProps> = ({ image, title, tags, link 
                         ))}
                     </ul>
                 </div>
-                <a href={link} className="w-6 h-6 bg-black box-shadow text-white flex items-center justify-center">
+                <a href={link} target={linkTarget} className="w-6 h-6 bg-black box-shadow text-white flex items-center justify-center">
                     <FontAwesomeIcon icon={faArrowRight} className="-rotate-45" />
                 </a>
             </div>

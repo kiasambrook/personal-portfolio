@@ -5,6 +5,7 @@ export type Project = {
     name: string;
     description: string;
     image: string;
+    image_url: string;
     skills: Skill[];
     link: string;
     created_at: string;
